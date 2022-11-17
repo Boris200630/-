@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson</title>
+    
+</head>
+<body>
+    <!-- Работа с классами -->
+   
+    1
+    <p class="elem">sss</p>
+    <script>
+        const p1 = document.querySelector('.elem');
+        p1.classList.add('www');
+    </script>
+
+    2
+    <p class="elem2 www">sss</p>
+    <script>
+        const p2 = document.querySelector('.elem2');
+        p2.classList.remove('www');
+    </script>
+
+    3
+    <p class="elem3">sss</p>
+    <script>
+        const p3 = document.querySelector('.elem3');
+        console.log(p3.classList.contains('www'));
+    </script>
+
+    4
+    <p class="elem4">sss</p>
+    <script>
+        const p4 = document.querySelector('.elem4');
+        p4.classList.toggle('www');
+    </script>
+
+    5
+    <p class="elem5 f my-class2f">sss</p>
+    <script>
+        const p5 = document.querySelector('.elem5');
+        console.log(p5.classList.length);
+    </script>
+
+    6
+    <p class="elem6 dhish sdhisd aoa">sss</p>
+    <script>
+        const p6 = document.querySelector('.elem6');
+        for (let i = 0; i < p6.classList.lenght; i += 1) {
+            console.log(p6.classList[i]);
+        }
+    </script>
+
+<!-- Работа с css -->
+
+    1
+    <p class="elem7">sss</p>
+    <script>
+        const p7 = document.querySelector('.elem7');
+        p7.style.cssText = 'width: 50px; background-color: red; border: 1px solid green;'
+    </script>
+
+<!-- Свойство tagName -->
+    1
+    <p class="elem8">sss</p>
+    <script>
+        const p8 = document.querySelector('.elem8');
+        p8.addEventListener('click', function () {
+            console.log(this.tagName);
+        });
+    </script>
+
+    2
+    <p class="elem9">sss</p>
+    <script>
+        const p9 = document.querySelector('.elem9');
+        p9.addEventListener('click', function () {
+            console.log(this.tagName.toLowerCase());
+        });
+    </script>
+
+    3
+    <p class="elem10">sss</p>
+    <span class="elem10">sss</span>
+    <div class="elem10">sss</div>
+    <script>
+        const p10 = document.querySelectorAll('.elem10');
+        for (let i = 0; i < p10.length; i += 1) {
+            p10[i].addEventListener('click', function () {
+                this.innerHTML = this.innerHTML + '->' + this.tagName.toLowerCase();
+            });
+        }
+    </script>
+
+    <!-- Вставка элементов через appendChild -->
+
+    1
+    <ol class="11">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <script>
+        const ol11 = document.querySelector('.11');
+        const li11 = document.createElement('li');
+
+        li11.innerHTML = 'пункт';
+        ol11.appendChild(li11);        
+    </script>
+
+    2
+    <ul class="12"></ul>
+    <script>
+        const arr12 = ['g', 'hh', 'jjj', 'kkkkk'];
+        const ul12 = document.querySelector('.12');
+        for (let i = 0; i < arr12. length; i += 1) {
+            const li12 = document.createElement('li');
+            li12.innerHTML = arr12[i];
+            ul12.appendChild(li12);
+        }
+    </script>
+
+    <!-- Вставка элементов через insertAdjacentHTML -->
+    
+    1
+    <p class="elem13">sss</p>
+    <script>
+        const p13 = document.querySelector('.elem13')
+        p13.insertAdjacentHTML('beforeBegin', '<span>!!!</span>');
+    </script>
+
+    2
+    <p class="elem14">sss</p>
+    <script>
+        const p14 = document.querySelector('.elem14');
+        p14.insertAdjacentHTML('afterEnd', '<span>!! - 2</span>');
+    </script>
+
+    3
+    <p class="elem15">
+        <span>sss</span>
+    </p>
+    <script>
+        const p15 = document.querySelector('.elem15');
+        p15.insertAdjacentHTML('afterBegin', '<span>!!! - 3</span>');
+    </script>
+
+    4
+    <p class="elem16">
+        <span>sss</span>
+    </p>
+    <script>
+        const p16 = document.querySelector('.elem16');
+        p16.insertAdjacentHTML('beforeEnd', '<span>!!! - 4</span>');
+    </script>
+
+<!-- Удаление и клонирование -->
+
+    1
+    <p class="parent17">sss
+        <span class="elem171">sss</span>
+    </p>
+    <button class="btn17">removeChild</button>
+    <script>
+        const btn17 = document.querySelector('.btn17');
+        const p17 = document.querySelector('.elem1');
+        const span17 = document.querySelector('.elem171');
+        btn17.addEventListener('click', func17);
+        function func17() {
+            p17.removeChild(span17);
+        };
+    </script>
+
+    2
+    <ol class="elem18">
+        <li class="elem181">1</li>
+        <li class="elem181">2</li>
+        <li class="elem181">3</li>
+    </ol>
+    <button class="btn18">removeChild</button>
+    <script>
+        const btn18 = document.querySelector('.btn18');
+        const ol18 = document.querySelector('.elem18');
+        const last = ol18.lastElementChild;
+        ol18.removeChild(last);
+    </script>
+
+    3
+    <button class="btn19">remove this button</button>
+    <script>
+        const btn19 = document.querySelector('.btn19');
+        btn19.addEventListener('click', func19);
+        function func19() {
+            const parent19 = btn19.parentElement;
+            parent19.removeChild(btn19);
+        };
+    </script>
+
+    4
+    <ol class="elem20">
+        <li class="elem201">1</li>
+        <li class="elem201">2</li>
+        <li class="elem201">3</li>
+    </ol>
+    <script>
+        const li20 = document.querySelectorAll('.elem20');
+        for (let i = 0; i < li20.length; i += 1) {
+            li20[i].addEventListener('click', func20);
+        }
+        function func20() {
+            const parent20 = this.parentElement;
+            parent20.removeChild(this);
+        };
+    </script>
+
+    5
+    <input type="search" value="aaaaaaaa" name="sss" id="id21">
+    <input type="submit" value="clone" class="btn21">
+    <script>
+        const input21 = document.querySelector('#id21');
+        const btn21 = document.querySelector('.btn21');
+        btn21.addEventListener('click', func21);
+        function func21() {
+            const clone21 = input21.cloneNode(true);
+            console.log(clone21);
+        };
+    </script>
+    
+<!-- Потомки -->
+
+    1
+    <p class="elem22">
+        <span>aaaaaaa</span>
+        <span>bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const p22 = document.querySelector('.elem22');
+
+        p22.firstElementChild.style.color = 'red';
+    </script>
+
+    2
+    <p class="elem23">
+        <span>aaaaaaa</span>
+        <span>bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const p23 = document.querySelector('.elem23');
+
+        p23.lastElementChild.style.color = 'blue';
+    </script>
+
+    3
+    <p class="elem24">
+        <span>aaaaaaa</span>
+        <span>bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const p24 = document.querySelector('.elem24');
+        const elems = p24.children;
+
+        for (let i = 0; i < elems.length; i += 1) {
+            elems[i].innerHTML = `${elems[i].innerHTML}!`;
+        }
+    </script>
+
+<!-- Соседи -->
+
+    1
+    <p class="elem25">
+        <span>aaaaaaa</span>
+        <span class="elem251">bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const span25 = document.querySelector('.elem251');
+        const elem25 = span25.previousElementSibling;
+        elem25.innerHTML = `${elem25.innerHTML}!`;
+    </script>
+
+    2
+    <p class="elem26">
+        <span class="elem261">aaaaaaa</span>
+        <span>bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const span26 = document.querySelector('.elem261');
+        const elem26 = span26.nextElementSibling;
+        const elem26Next = elem26.nextElementSibling;
+        elem26Next.innerHTML = `${elem26Next.innerHTML}?`;
+    </script>
+
+<!-- Родители -->
+
+    1
+    <p class="elem27">
+        fffffff hhhhhhhhhhh <br>
+        <span>aaaaaaa</span>
+        <span class="elem271">bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    <script>
+        const span27 = document.querySelector('.elem271');
+        const elem27 = span27.parentElement;
+        elem27.style.backgroundColor = 'red';
+    </script>
+
+    2
+    <div>
+    <p class="elem28">
+        fffffff hhhhhhhhhhh <br>
+        <span>aaaaaaa</span>
+        <span class="elem281">bbbbbbb</span>
+        <span>sssssss</span>
+    </p>
+    </div>
+    <script>
+        const span28 = document.querySelector('.elem281');
+        const elem28 = span28.parentElement;
+        parent28 = elem28.parentElement;
+        console.log(parent28);
+
+        parent28.style.backgroundColor = 'red';
+    </script>
+
+<!-- На величину границы -->
+
+    1
+    <div class="elem29"></div>
+    <button class="btn29">click</button>
+
+    <script>
+        const elem29 = document.querySelector('.elem29');
+        const btn29 = document.querySelector('.btn29');
+
+        btn29.addEventListener('click', func29);
+
+        function func29() {
+            alert(elem29.clientTop);
+        };
+    </script>
+
+    2
+    <div class="elem30"></div>
+    <button class="btn30">click</button>
+
+    <script>
+        const elem30 = document.querySelector('.elem30');
+        const btn30 = document.querySelector('.btn30');
+
+        btn30.addEventListener('click', func30);
+
+        function func30() {
+            alert(elem30.clientLeft);
+        };
+    </script>
+
+<!-- На полный размер элемента -->
+
+    1
+    <div class="elem31"></div>
+    <button class="btn31">click</button>
+    <script>
+        const elem31 = document.querySelector('.elem31');
+        const btn31 = document.querySelector('.btn31');
+
+        btn31.addEventListener('click', func31);
+
+        function func31() {
+            alert(elem31.offsetWidth);
+        };
+    </script>
+
+    2
+    <div class="elem31 elem32"></div>
+    <button class="btn32">click</button>
+    <script>
+        const elem32 = document.querySelector('.elem32');
+        const btn32 = document.querySelector('.btn32');
+
+        btn32.addEventListener('click', func32);
+
+        function func32() {
+            alert(elem32.offsetHeight);
+        };
+    </script>
+
+<!-- На размер элемента без границ, но с padding -->
+
+    1
+    <div class="elem31 elem33"></div>
+    <button class="btn33">click</button>
+    <script>
+        const elem33 = document.querySelector('.elem33');
+        const btn33 = document.querySelector('.btn33');
+        btn33.addEventListener('click', func33);
+        function func33() {
+            alert(elem33.clientWidth);
+        };
+    </script>
+
+    2
+    <div class=" elem31 elem34"></div>
+    <button class="btn34">click</button>
+    <script>
+        const elem34 = document.querySelector('.elem34');
+        const btn34 = document.querySelector('.btn34');
+        btn34.addEventListener('click', func34);
+        function func34() {
+            alert(elem34.clientHeight);
+        };
+    </script>
+
+<!-- Работа с getComputedStyle -->
+
+    1
+    <div class="elem31 elem35"></div>
+    <button class="btn35">click</button>
+    <script>
+        const elem35 = document.querySelector('.elem35');
+        const btn35 = document.querySelector('.btn35');
+        btn35.addEventListener('click', func35);
+        function func35() {
+            alert(getComputedStyle(elem35).width);
+            alert(getComputedStyle(elem35).height);
+        };
+    </script>
+
+<!-- Прокрутка элемента -->
+
+    1
+    <div class="elem36">
+        Текст (от лат. textus — ткань; сплетение, сочетание) — зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов.
+        Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.
+    </div>
+    <button class="btn36">click</button>
+    <script>
+        const elem36 = document.querySelector('.elem36');
+        const btn36 = document.querySelector('.btn36');
+        btn36.addEventListener('click', func36);
+        function func36() {
+            alert(elem36.scrollTop);
+        };
+    </script>
+
+    2
+    <div class="elem36">
+        Текст (от лат. textus — ткань; сплетение, сочетание) — зафиксированная на каком-либо материальном носителе человеческая мысль; в общем плане связная и полная последовательность символов.
+        Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.
+    </div>
+    <button class="btn37">click</button>
+    <script>
+        const btn37 = document.querySelector('.btn37');
+        btn37.addEventListener('click', func37);
+        function func37() {
+            alert(window.pageXOffset);
+        };
+    </script>
+
+    3
+    <button class="btn38">click</button>
+    <script>
+        const btn38 = document.querySelector('.btn37');
+        btn38.addEventListener('click', func38);
+        function func38() {
+            alert(window.pageYOffset);
+        };
+    </script>
+
+<!-- Прокрутка страницы -->
+
+    1
+    <button class="btn39">click</button>
+    <script>
+        const btn39 = document.querySelector('.btn39');
+        btn39.addEventListener('click', func39);
+        function func39() {
+            window.scrollTo(300, 500);
+        };
+    </script>
+
+    2
+    <button class="btn40">click</button>
+    <script>
+        const btn40 = document.querySelector('.btn40');
+        btn40.addEventListener('click', func40);
+        function func40() {
+            window.scrollBy(0, 300);
+        };
+    </script>
+
+<!-- Практика -->
+
+    1
+    <button class="btn41">click</button>
+    <script>
+        const btn41 = document.querySelector('.btn41');
+        btn41.addEventListener('click', func41);
+        function func41() {
+            window.scrollTo(0, document.body.clientHeight);
+        };
+    </script>
+
+    2
+    <button class="btn42">click</button>
+    <script>
+        const btn42 = document.querySelector('.btn42');
+        btn42.addEventListener('click', func42);
+        function func42() {
+            window.scrollTo(0, 400);
+        };
+    </script>
+
+    3
+    <button class="btn43">click</button>
+    <script>
+        const btn43 = document.querySelector('.btn43');
+
+        btn43.addEventListener('click', func43);
+
+        function func43() {
+            const body = document.documentElement;
+            if (body.scrollHeight - body.scrollTop === body.clientHeight) {
+                window.scrollTo(0, 100);
+            }
+        };
+    </script>
+
+    4
+    <div class="elem44"></div>
+    <button class="btn44">click</button>
+    <script>
+        const elem44 = document.querySelector('.elem44');
+        const btn44 = document.querySelector('.btn44');
+        btn44.addEventListener('click', func44);
+        function func44() {
+                elem44.style.width = elem44.offsetWidth * 2 + 'px';
+                elem44.style.height = elem44.offsetHeight * 2 + 'px';
+            };
+    </script>
+
+
+
+
+
+</body>
+</html>
